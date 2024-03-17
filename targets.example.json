@@ -1,0 +1,15 @@
+{
+    "staging":{
+        "host": "example.com",
+        "user": "ssh_user",
+        "site_root": "/absolute/path/to/staging/root/",
+        "port": 1022,
+
+        "db_name": "wordpress",
+        "db_pass": "wordpress",
+        "db_user": "wordpress",
+        "db_host": "localhost",
+        
+        "local_url": "http://deployer.lndo.site"
+    }
+}

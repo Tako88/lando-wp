@@ -1,0 +1,42 @@
+name: deployer
+recipe: wordpress
+
+config:
+  webroot: ./site
+  database: mariadb
+  php: '8.2'
+
+services:
+  appserver:
+    build_as_root:
+      - apt update -y && apt install jq -y
+
+tooling:
+  pull:
+    service: appserver
+    description: Pulls site from target
+    dir: /app
+    cmd: ./pull.sh
+    level: app
+    options:
+      target:
+        passthrough: true
+        interactive:
+          type: input
+          message: "Specify target for pull:"
+          default: staging
+          weight: 600
+  push:
+    service: appserver
+    description: Pushes site to target
+    dir: /app
+    cmd: ./push.sh
+    level: app
+    options:
+      target:
+        passthrough: true
+        interactive:
+          type: input
+          message: "Specify target for push:"
+          default: staging
+          weight: 600
