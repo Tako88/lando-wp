@@ -10,6 +10,7 @@
         "db_user": "wordpress",
         "db_host": "localhost",
         
-        "local_url": "http://deployer.lndo.site"
+        "local_url": "http://deployer.lndo.site",
+        "remote_url": "https://staging.example.com"
     }
 }

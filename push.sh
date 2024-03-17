@@ -31,7 +31,7 @@ if [ "$WITH_DB" = true ]; then
     rm db.sql
     
     OLD_URL=$(wp option get siteurl)
-    NEW_URL=$(depssh "wp option get siteurl")
+    NEW_URL=$( jq -r ."${TARGET}".remote_url ../targets.json)
     
     depssh "mkdir -p dep_backup; wp db export ./dep_backup/dbold.sql; cp wp-config.php dep_backup/; \
         wp db import db.sql; \

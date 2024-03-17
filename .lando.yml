@@ -1,4 +1,4 @@
-name: deployer
+name: deployer2
 recipe: wordpress
 
 config:
