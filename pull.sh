@@ -29,7 +29,8 @@ fi
 
 depssh "rm db.sql"
 
-REMOTE_URL=$(depssh "wp option get siteurl")
+#REMOTE_URL=$(depssh "wp option get siteurl")
+REMOTE_URL=$( jq -r ."${TARGET}".remote_url ../targets.json)
 
 wp db import db.sql
 wp search-replace "$REMOTE_URL" "$LOCAL_URL"
