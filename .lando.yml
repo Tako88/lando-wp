@@ -10,6 +10,10 @@ services:
   appserver:
     build_as_root:
       - apt update -y && apt install jq -y
+  mailhog:
+    type: mailhog
+    hogfrom:
+        - appserver
 
 tooling:
   pull:
